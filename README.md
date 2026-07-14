@@ -52,7 +52,7 @@ STM32 (DMA + FreeRTOS)
 Raspberry Pi (GUI)
 ```
 <p align="center">
-  <img src="visualisation/System%20Architecture.png" alt="System Architecture" width="800">
+  <img src="visualisation/SystemArchitecture.png" alt="System Architecture" width="800">
 </p>
 ---
 
