@@ -54,6 +54,7 @@ Raspberry Pi (GUI)
 <p align="center">
   <img src="visualisation/SystemArchitecture.png" alt="System Architecture" width="800">
 </p>
+
 ---
 
 ## ✨ Planned Features
