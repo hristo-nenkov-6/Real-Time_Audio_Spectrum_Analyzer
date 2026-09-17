@@ -1,0 +1,12 @@
+../Core/Src/main.c:89:5:main	3
+../Core/Src/main.c:152:6:SystemClock_Config	3
+../Core/Src/main.c:199:13:MX_ADC1_Init	3
+../Core/Src/main.c:251:13:MX_I2C1_Init	2
+../Core/Src/main.c:285:13:MX_TIM1_Init	4
+../Core/Src/main.c:332:13:MX_TIM2_Init	5
+../Core/Src/main.c:382:13:MX_DMA_Init	1
+../Core/Src/main.c:404:13:MX_GPIO_Init	1
+../Core/Src/main.c:432:6:map_wave_to_ssd1306	11
+../Core/Src/main.c:471:6:HAL_ADC_ConvHalfCpltCallback	1
+../Core/Src/main.c:476:6:HAL_ADC_ConvCpltCallback	1
+../Core/Src/main.c:489:6:Error_Handler	1
