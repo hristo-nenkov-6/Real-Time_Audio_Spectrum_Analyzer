@@ -35,6 +35,7 @@ extern I2C_HandleTypeDef hi2c1;
 
 /* SSD1306 data buffer */
 static uint8_t SSD1306_Buffer[1 + SSD1306_WIDTH * SSD1306_HEIGHT / 8];
+extern volatile uint8_t screen_in_process;
 
 /* Private SSD1306 structure */
 typedef struct {
@@ -139,11 +140,22 @@ void SSD1306_UpdateScreen(void) {
 	//uint8_t m;
 
 	//for (m = 0; m < 8; m++) {
-		SSD1306_WRITECOMMAND(0x20);
-		SSD1306_WRITECOMMAND(0x00);
-		HAL_I2C_Master_Transmit_DMA(&hi2c1, SSD1306_I2C_ADDR, SSD1306_Buffer, sizeof(SSD1306_Buffer));
+		//SSD1306_WRITECOMMAND(0x20);
+		//SSD1306_WRITECOMMAND(0x00);
+		//HAL_I2C_Master_Transmit_DMA(&hi2c1, SSD1306_I2C_ADDR, SSD1306_Buffer, sizeof(SSD1306_Buffer));
+
+	    static uint32_t last_tx_time = 0;
+
+	    // If locked for over 50ms, assume a bus glitch occurred and force-reset
+	        if (HAL_GetTick() - last_tx_time > 100) {
+	        	screen_in_process = 0;
+	        	//return;
+	        }
 
 		/* Write multi data */
+		if (HAL_I2C_Master_Transmit_DMA(&hi2c1, SSD1306_I2C_ADDR, SSD1306_Buffer, sizeof(SSD1306_Buffer)) == HAL_OK) {
+				last_tx_time = HAL_GetTick();
+			}
 		//ssd1306_I2C_WriteMulti(SSD1306_I2C_ADDR, 0x40, &SSD1306_Buffer[SSD1306_WIDTH * m], SSD1306_WIDTH);
 	//}
 
@@ -661,3 +673,6 @@ void ssd1306_I2C_Write(uint8_t address, uint8_t reg, uint8_t data) {
 	HAL_I2C_Master_Transmit(SSD1306_I2C, address, dt, 2, 10);
 }
 
+void SSD1306_UpdateScreen_DMA() {
+
+}

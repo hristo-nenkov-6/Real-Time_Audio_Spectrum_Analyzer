@@ -149,6 +149,7 @@ int main(void)
 	        SSD1306_UpdateScreen();
 	   	}
 	 }
+
   }
   /* USER CODE END 3 */
 }
@@ -489,6 +490,11 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 
 void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c) {
 	screen_in_process = 0;
+}
+
+void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c) {
+	 screen_in_process = 0;
+
 }
 
 /* USER CODE END 4 */

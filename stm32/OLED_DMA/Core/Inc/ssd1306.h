@@ -96,8 +96,6 @@ void SSD1306_UpdateScreen(void);
  * @retval None
  */
 
-void SSD1306_UpdateScreen_DMA (void);
-
 void SSD1306_ToggleInvert(void);
 
 /** 
