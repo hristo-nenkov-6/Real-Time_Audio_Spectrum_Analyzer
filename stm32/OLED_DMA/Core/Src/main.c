@@ -133,11 +133,6 @@ int main(void)
 	if (half_ready)
 	{
 		half_ready = 0;
-		//if (!screen_in_process)
-		//{
-		//   screen_in_process = 1;
-	    //   SSD1306_Clear();
-		//}
 		SSD1306_Fill (0);
 	   	map_wave_to_ssd1306(mem_buffer, 1);
      }
@@ -453,10 +448,10 @@ void map_wave_to_ssd1306(uint16_t *buffer, uint8_t processed)
 				sum += abs(buffer[ DIVIDER * i + j]);
 			}
 			int real_y = (sum / DIVIDER) / 128;
-			if (real_y > 31) real_y = 31;
+
 			if (i > 1)
 			{
-			SSD1306_DrawLine(i - 1, prev_y, i, real_y, SSD1306_COLOR_WHITE);
+			    SSD1306_DrawLine(i - 1, prev_y, i, real_y, SSD1306_COLOR_WHITE);
 			}
 			prev_y = real_y;
 		}
@@ -471,10 +466,9 @@ void map_wave_to_ssd1306(uint16_t *buffer, uint8_t processed)
 				sum += abs(buffer[ DIVIDER * i + j]);
 			}
 			int real_y = (sum / DIVIDER) / 128;
-			if (real_y > 31) real_y = 31;
-			if (i >= 1) {
-				SSD1306_DrawLine(i - 1, prev_y, i, real_y, SSD1306_COLOR_WHITE);
-			}
+
+		    SSD1306_DrawLine(i - 1, prev_y, i, real_y, SSD1306_COLOR_WHITE);
+
 			prev_y = real_y;
 		}
 	}
@@ -482,12 +476,10 @@ void map_wave_to_ssd1306(uint16_t *buffer, uint8_t processed)
 
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc)
 {
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
     half_ready = 1;
 }
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 	full_ready = 1;
 }
 

@@ -6,9 +6,9 @@
 ../Core/Src/main.c:343:13:MX_TIM2_Init	5
 ../Core/Src/main.c:393:13:MX_DMA_Init	1
 ../Core/Src/main.c:415:13:MX_GPIO_Init	1
-../Core/Src/main.c:443:6:map_wave_to_ssd1306	13
-../Core/Src/main.c:483:6:HAL_ADC_ConvHalfCpltCallback	1
-../Core/Src/main.c:488:6:HAL_ADC_ConvCpltCallback	1
-../Core/Src/main.c:494:6:HAL_I2C_MasterTxCpltCallback	1
-../Core/Src/main.c:498:6:HAL_I2C_ErrorCallback	1
-../Core/Src/main.c:509:6:Error_Handler	1
+../Core/Src/main.c:443:6:map_wave_to_ssd1306	10
+../Core/Src/main.c:482:6:HAL_ADC_ConvHalfCpltCallback	1
+../Core/Src/main.c:486:6:HAL_ADC_ConvCpltCallback	1
+../Core/Src/main.c:491:6:HAL_I2C_MasterTxCpltCallback	1
+../Core/Src/main.c:495:6:HAL_I2C_ErrorCallback	1
+../Core/Src/main.c:506:6:Error_Handler	1
