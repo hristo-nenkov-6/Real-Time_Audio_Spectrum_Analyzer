@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ssd1306.h"
+#include <stdlib.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -132,11 +133,12 @@ int main(void)
 	if (half_ready)
 	{
 		half_ready = 0;
-		if (!screen_in_process)
-		{
-		   screen_in_process = 1;
-	       SSD1306_Clear();
-		}
+		//if (!screen_in_process)
+		//{
+		//   screen_in_process = 1;
+	    //   SSD1306_Clear();
+		//}
+		SSD1306_Fill (0);
 	   	map_wave_to_ssd1306(mem_buffer, 1);
      }
      if (full_ready)
@@ -448,11 +450,11 @@ void map_wave_to_ssd1306(uint16_t *buffer, uint8_t processed)
 
 			for (int j = 0; j < DIVIDER; j++)
 			{
-				sum += buffer[ DIVIDER * i + j];
+				sum += abs(buffer[ DIVIDER * i + j]);
 			}
 			int real_y = (sum / DIVIDER) / 128;
-
-			if (i > 0)
+			if (real_y > 31) real_y = 31;
+			if (i > 1)
 			{
 			SSD1306_DrawLine(i - 1, prev_y, i, real_y, SSD1306_COLOR_WHITE);
 			}
@@ -466,9 +468,10 @@ void map_wave_to_ssd1306(uint16_t *buffer, uint8_t processed)
 			int sum = 0;
 			for (int j = 0; j < DIVIDER; j++)
 			{
-				sum += buffer[ DIVIDER * i + j];
+				sum += abs(buffer[ DIVIDER * i + j]);
 			}
 			int real_y = (sum / DIVIDER) / 128;
+			if (real_y > 31) real_y = 31;
 			if (i >= 1) {
 				SSD1306_DrawLine(i - 1, prev_y, i, real_y, SSD1306_COLOR_WHITE);
 			}
@@ -493,7 +496,7 @@ void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c) {
 }
 
 void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c) {
-	 screen_in_process = 0;
+	screen_in_process = 0;
 
 }
 
