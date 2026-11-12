@@ -30,7 +30,10 @@ The primary objective is to demonstrate hardware/software co-design by comparing
 Microphone
     │
     ▼
-STM32 (DMA + FreeRTOS)
+I2C + DMA
+    │
+    ▼
+  STM32
     │
     ▼
    SPI
@@ -50,6 +53,9 @@ STM32 (DMA + FreeRTOS)
     │
     ▼
 Raspberry Pi (GUI)
+    │
+    ▼
+ Monitor
 ```
 <p align="center">
   <img src="visualisation/SystemArchitecture.png" alt="System Architecture" width="800">
@@ -93,13 +99,14 @@ Raspberry Pi (GUI)
 
 ### ⚡ FPGA
 
+* Verilog
 * SystemVerilog
 * AMD Vivado
 
 ### 🖥️ Raspberry Pi
 
 * Python
-* PyQt or PySide
+* PyQt
 * PyQtGraph
 * PySerial
 
@@ -144,10 +151,10 @@ This project is intended to develop practical experience in:
 
 * 🔹 Embedded systems engineering
 * 🔹 Real-time operating systems (FreeRTOS)
-* 🔹 FPGA development using SystemVerilog
+* 🔹 FPGA development using Verilog and SystemVerilog
 * 🔹 Digital Signal Processing (DSP)
 * 🔹 Hardware/software co-design
-* 🔹 Communication protocols (SPI, UART)
+* 🔹 Communication protocols (SPI, UART, I2C)
 * 🔹 Performance optimization and benchmarking
 
 ---
