@@ -125,13 +125,13 @@ results/           Benchmarks and experimental results
 * [x] 📋 Project planning
 * [x] 🏗️ System architecture defined
 * [x] 🛒 Hardware selection completed
-* [ ] ⚙️ STM32 development environment configured
-* [ ] 🎤 Audio acquisition
-* [ ] 💾 DMA implementation
+* [x] ⚙️ STM32 development environment configured
+* [x] 🎤 Audio acquisition
+* [x] 💾 DMA implementation
 * [ ] 🧵 FreeRTOS integration
 * [ ] 🧮 Software FFT
 * [ ] 🔌 SPI communication
-* [ ] ⚡ FPGA FFT implementation
+* [x] ⚡ FPGA FFT implementation
 * [ ] 🖥️ Raspberry Pi GUI
 * [ ] 🔗 System integration
 * [ ] 📊 Performance benchmarking
